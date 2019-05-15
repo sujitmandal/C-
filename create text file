@@ -1,0 +1,45 @@
+/* write a program to create text file */
+#include <iostream>
+#include <fstream>
+ 
+ /* This program created by Sujit Mandal */
+ 
+using namespace std;
+ 
+int main()
+{
+   fstream ifile;
+   
+   ifile.open("sample.txt",ios::out);
+    
+   if(!ifile)
+   {
+       cout<<"Error in creating file!!!"<<endl;
+       return 0;
+   }
+    
+   cout<<"File created successfully."<<endl;
+   ifile<<"hi my name is sujit mandal and i love programing...";
+   ifile.close();
+    
+   ifile.open("sample.txt",ios::in);
+    
+   if(!ifile)
+   {
+       cout<<"Error in opening file!!!"<<endl;
+       return 0;
+   }   
+    
+   char ch; 
+   cout<<"File content: ";
+    
+   while(!ifile.eof())
+   {
+       ifile>>ch; 
+       cout<<ch;
+   }
+    
+   ifile.close(); 
+    
+   return 0;
+}
